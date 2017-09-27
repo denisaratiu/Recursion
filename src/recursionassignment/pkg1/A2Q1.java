@@ -80,40 +80,47 @@ public class A2Q1 {
         }
     }
 
-    public void binaryConvert(int n) {
+    public String binaryConvert(int n) {
+        // create a string to hold the binary number
         String binary = new String();
-        // output the next number in the sequence each time
-        System.out.println(n);
-
-        // if n can be divided by 2 evenly
+        // if n can be divided by 2 evenly the quotient would be 0
         if (n % 2 == 0) {
-            // if n is an even number than divide by 2
-            binary("0");
-        } // if its not an even number
+            // output the remainder of 0
+            binary = ("0");
+        } // if it cannot be divided evenly into 2
         else {
-            binary("1");
+            // return 1 as the remainder for odd numbers
+            binary = ("1");
         }
         // if the number is 1, stop the sequence
         if (n == 1) {
             // stop the sequence
             return binary;
         }
-
+        // scan in inputted number, first divide by 2 
+        // then show whether there is a remainder or not
+        String answer = binaryConvert(n / 2) + binary;
+        // output the binary each time
+        return answer;
     }
 
+    public void convert(int n, int b){
+        
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         A2Q1 test = new A2Q1();
-//        int answer = test.digitalSum(1234567);
-//        System.out.println(answer);
-//        int ans2 = test.digitalRoot(1234567);
-//        System.out.println(ans2);
-//        int ans3 = test.triangle(3);
-//        System.out.println(ans3);
-//        test.hailstone(5);
-        test.binaryConvert(156);
+        int answer = test.digitalSum(1234567);
+        System.out.println(answer);
+        int ans2 = test.digitalRoot(1234567);
+        System.out.println(ans2);
+        int ans3 = test.triangle(3);
+        System.out.println(ans3);
+        test.hailstone(5);
+        String ans = test.binaryConvert(156);
+        System.out.println(ans);
 
     }
 }
