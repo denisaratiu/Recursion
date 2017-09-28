@@ -104,9 +104,9 @@ public class A2Q1 {
         return answer;
     }
 
-    public void convert(int n, int b){
-        
+    public void convert(int n, int b) {
     }
+
     /**
      * @param args the command line arguments
      */
@@ -119,8 +119,8 @@ public class A2Q1 {
         int ans3 = test.triangle(3);
         System.out.println(ans3);
         test.hailstone(5);
-        String ans = test.binaryConvert(156);
-        System.out.println(ans);
+        String ans4 = test.binaryConvert(156);
+        System.out.println(ans4);
 
     }
 }
