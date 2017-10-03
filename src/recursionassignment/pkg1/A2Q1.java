@@ -104,23 +104,68 @@ public class A2Q1 {
         return answer;
     }
 
-    public void convert(int n, int b) {
+    public String convert(int n, int b) {
+        // create a string to hold the remainder of the number when divided by the other
+        String remainder = new String();
+        // create the letters that will convert the corresponding number to a letter
+        String[] letterConversion = {"A", "B", "C", "D", "E", "F"};
+        // if the remainder of n divided by b is above 10
+        if (n % b >= 10) {
+            // convert to the corresponding letter
+            remainder = remainder + letterConversion[n % b - 10];
+        } // if the remainder of n divided by b is less than 10 but more than 2
+        if (n % b < 10 || n % b >= 2) {
+            // return the remainder
+            remainder = remainder + n%b;
+        }
+        // if the remainder is 0
+        if (n / b == 0) {
+            // stop the sequence and return number
+            return remainder;
+        }
+        // scan in inputted numbers, first divide by each other 
+        // then show remainder
+        String answer = convert(n / b, b) + remainder;
+        // output the remainder
+        return answer;
     }
+    
+    public boolean isPalindrome(String s, int length){
+        // if the length is 1 or 0 then it is a palindrome
+        if(length < 2){
+            return true;
+        }
+        // start at the first position and look to see if the last position is the same
+        if(s.charAt(0) == s.charAt(s.length() - 1)){
+            // see if the second and second last position is the same 
+            // by removing the first and last positions each time
+            return isPalindrome(s.charAt(1, length -1), length - 2);
+        }
+        // if the first and last position are not the same, it is not a palindrome
+        else{
+            return false;
+        }
+    }
+
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         A2Q1 test = new A2Q1();
-        int answer = test.digitalSum(1234567);
-        System.out.println(answer);
-        int ans2 = test.digitalRoot(1234567);
-        System.out.println(ans2);
-        int ans3 = test.triangle(3);
-        System.out.println(ans3);
-        test.hailstone(5);
-        String ans4 = test.binaryConvert(156);
-        System.out.println(ans4);
+//        int answer = test.digitalSum(1234567);
+//        System.out.println(answer);
+//        int ans2 = test.digitalRoot(1234567);
+//        System.out.println(ans2);
+//        int ans3 = test.triangle(3);
+//        System.out.println(ans3);
+//        test.hailstone(5);
+//        String ans4 = test.binaryConvert(156);
+//        System.out.println(ans4);
+   //     String ans5 = test.convert(1000, 8);
+    //    System.out.println(ans5);
+        boolean ans6 = test.isPalindrome("roar", 4);
+        System.out.println(ans6);
 
     }
 }
