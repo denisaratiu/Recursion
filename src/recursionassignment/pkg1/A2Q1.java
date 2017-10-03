@@ -116,7 +116,7 @@ public class A2Q1 {
         } // if the remainder of n divided by b is less than 10 but more than 2
         if (n % b < 10 || n % b >= 2) {
             // return the remainder
-            remainder = remainder + n%b;
+            remainder = remainder + n % b;
         }
         // if the remainder is 0
         if (n / b == 0) {
@@ -129,24 +129,22 @@ public class A2Q1 {
         // output the remainder
         return answer;
     }
-    
-    public boolean isPalindrome(String s, int length){
+
+    public boolean isPalindrome(String s, int length) {
         // if the length is 1 or 0 then it is a palindrome
-        if(length < 2){
+        if (length < 2) {
             return true;
         }
         // start at the first position and look to see if the last position is the same
-        if(s.charAt(0) == s.charAt(s.length() - 1)){
+        if (s.charAt(0) == s.charAt(s.length() - 1)) {
             // see if the second and second last position is the same 
             // by removing the first and last positions each time
-            return isPalindrome(s.charAt(1, length -1), length - 2);
-        }
-        // if the first and last position are not the same, it is not a palindrome
-        else{
+            return isPalindrome(s.substring(1, length - 1), length - 2);
+        } // if the first and last position are not the same, it is not a palindrome
+        else {
             return false;
         }
     }
-
 
     /**
      * @param args the command line arguments
@@ -162,9 +160,9 @@ public class A2Q1 {
 //        test.hailstone(5);
 //        String ans4 = test.binaryConvert(156);
 //        System.out.println(ans4);
-   //     String ans5 = test.convert(1000, 8);
-    //    System.out.println(ans5);
-        boolean ans6 = test.isPalindrome("roar", 4);
+        //     String ans5 = test.convert(1000, 8);
+        //    System.out.println(ans5);
+        boolean ans6 = test.isPalindrome("racecar", 7);
         System.out.println(ans6);
 
     }
